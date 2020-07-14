@@ -5,6 +5,10 @@ RSpec.describe 'as a user' do
     visit '/'
     select 'Fire Nation', from: :nation
     click_on 'commit'
+
+    expect(current_path).to eq(search_path)
+    expect(page).to have_content('Total Members: 34')
+
   end
 end
 
