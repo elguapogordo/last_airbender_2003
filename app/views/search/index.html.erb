@@ -1,0 +1,10 @@
+<h1>Total Members: <%= @members.count %> </h1>
+
+<% @members.each do |member| %>
+  <p><img src=<%= member.photoUrl %>><br>
+    Name:<%= member.name %><br>
+    Affiliation: <%= member.affiliation %><br>
+    Allies: <%= member.allies %><br>
+    Enemies: <%= member.name %><br>
+  </p>
+<% end %>

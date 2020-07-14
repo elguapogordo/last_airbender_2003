@@ -1,18 +1,18 @@
 class AirbenderService
   def initialize
     @nation = {
-      'air_nomads' => 'Air+Nomads',
-      'earth_kingdom' => 'Earth+Kingdom',
-      'fire_nation' => 'Fire+Nation',
-      'water_tribes' => 'Water+Tribes'
+      'air_nomads' => 'Air Nomads',
+      'earth_kingdom' => 'Earth Kingdom',
+      'fire_nation' => 'Fire Nation',
+      'water_tribes' => 'Water Tribes'
     }
   end
 
   def default_members(nation)
     response = conn.get("api/v1/characters") do |req|
-      req.params['affiliation'] = 'Fire+Nation'
+      req.params['affiliation'] = @nation[nation]
     end
-binding.pry
+    
     JSON.parse(response.body, symbolize_names: true)
   end
 
