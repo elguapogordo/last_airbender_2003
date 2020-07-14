@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @members = SearchResults.new(params[:nation])
+    @members = SearchResults.default_members(params[:nation])
   end
 end
